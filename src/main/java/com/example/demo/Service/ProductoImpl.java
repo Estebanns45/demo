@@ -35,7 +35,6 @@ public class ProductoImpl implements IProductos_FinancierosService {
             }
                 Productos_Financieros productosFinancieros = new Productos_Financieros();
                 productosFinancieros.setExcenta_gmf(productoDto.getExcenta_gmf());
-                productosFinancieros.setProducto(productoDto.getProducto());
                 productosFinancieros.setId(productoDto.getIdcliente());
                 productosFinancieros.setFecha_creacion(productoDto.getFecha_creacion());
                 productosFinancieros.setFecha_modificacion(productoDto.getFecha_modificacion());

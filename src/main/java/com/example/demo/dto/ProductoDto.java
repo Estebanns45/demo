@@ -24,6 +24,8 @@ public class ProductoDto {
     private Date fecha_modificacion;
     private Integer saldo;
 
+
+
     public Long getIdcliente() {
         return idcliente;
     }

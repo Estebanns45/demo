@@ -32,6 +32,7 @@ public class ClienteDto {
 
     private Date fecha_modificacion;
 
+
     public Date getFecha_modificacion() {
         return fecha_modificacion;
     }

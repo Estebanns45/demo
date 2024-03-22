@@ -42,7 +42,7 @@ public class ClienteImpl implements IClientesService {
         cliente.setTipo_identificacion(clienteDto.getTipo_identificacion());
         cliente.setNumero_identificacion(clienteDto.getNumero_identificacion());
         cliente.setApellido(clienteDto.getApellido());
-        cliente.setFecha_nacimiento(cliente.getFecha_nacimiento());
+        cliente.setFecha_nacimiento(clienteDto.getFecha_nacimiento());
         cliente.setFecha_creacion(clienteDto.getFecha_creacion());
         cliente.setCorreo_electronico(clienteDto.getCorreo_electronico());
         iClientesRepository.save(cliente);
