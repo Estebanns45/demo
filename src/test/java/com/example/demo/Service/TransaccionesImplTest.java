@@ -37,8 +37,8 @@ class TransaccionesImplTest {
     @Test
     void consignacion() {
         TransaccionesDto transaccionesDto = new TransaccionesDto();
-        transaccionesDto.setIdProductoFinanciero(1L); // Ajusta según sea necesario
-        transaccionesDto.setMonto(100d); // Ajusta según sea necesario
+        transaccionesDto.setIdProductoFinanciero(1L);
+        transaccionesDto.setMonto(100d);
 
         Productos_Financieros productoFinanciero = new Productos_Financieros();
         productoFinanciero.setId(1L);
@@ -47,7 +47,6 @@ class TransaccionesImplTest {
         Mockito.when(iProductos_financierosRepository.findById(1L)).thenReturn(java.util.Optional.of(productoFinanciero));
         Transacciones transaccion = servicio.consignacion(transaccionesDto);
 
-        // Assert
         ArgumentCaptor<Transacciones> transaccionCaptor = ArgumentCaptor.forClass(Transacciones.class);
         verify(iTransaccionesRepository).save(transaccionCaptor.capture());
         Transacciones transaccionGuardada = transaccionCaptor.getValue();
@@ -56,7 +55,7 @@ class TransaccionesImplTest {
         ArgumentCaptor<Productos_Financieros> productoCaptor = ArgumentCaptor.forClass(Productos_Financieros.class);
         verify(iProductos_financierosRepository).save(productoCaptor.capture());
         Productos_Financieros productoFinancieroGuardado = productoCaptor.getValue();
-        assertEquals(600, productoFinancieroGuardado.getSaldo()); // saldo original (500) + monto de transacción (100)
+        assertEquals(600, productoFinancieroGuardado.getSaldo());
 
         assertNotNull(transaccion);
         assertEquals(transaccionesDto.getMonto(), transaccion.getMonto());

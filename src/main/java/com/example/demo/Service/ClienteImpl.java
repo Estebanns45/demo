@@ -56,19 +56,12 @@ public class ClienteImpl implements IClientesService {
     }
     private boolean mayorEdad(LocalDateTime fechaNacimiento){
         LocalDateTime ahora = LocalDateTime.now();
-        int edad = ahora.getYear() - fechaNacimiento.getYear();
-        int mesActual = ahora.getMonthValue();
-        int mesNacimiento = fechaNacimiento.getMonthValue();
-        if (mesNacimiento > mesActual){
-            edad--;
-        } else if (mesNacimiento==mesActual){
-            int diaActual = ahora.getDayOfMonth();
-            int diaNacimiento = fechaNacimiento.getDayOfMonth();
-            if (diaNacimiento > diaActual){
-                edad--;
-            }
+        if ((ahora.getYear() - fechaNacimiento.getYear()) < 18) {
+            return false;
         }
-        return edad >=18;
+        else {
+            return true;
+        }
     }
         @Override
         public Clientes modificar(Long id, ClienteDto clientes) {
